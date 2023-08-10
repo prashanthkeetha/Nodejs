@@ -12,7 +12,10 @@ app.get('/', function(req, res) {
 app.get('/code',function(req,res){
     res.send('welcome to express')
 });
-
+app.get('/code/:id',function(req,res){
+    const id=req.params.id
+    res.send('welcome')
+});
 // Start the server on port 8081
 app.listen(8081, function() {
     console.log("Server is listening on port 8081");
