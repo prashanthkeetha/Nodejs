@@ -50,6 +50,28 @@ fs.writeFile(filePath,'working on fs', function(err){
     }
 });*/
 
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const path = require('path');
+
+const filepath = path.join(__dirname,'1.txt');
+
+app.use('/get', function(req,res){
+
+    fs.appendFile(filepath,'learning',function(err){
+        if(err){
+            res.status(500).send('Error')
+        }else{
+            res.status(200)
+        }
+    });
+});
+
+app.listen(3588);
+console.log('listening');
+
+
 
 
 //________________________________________________________________
